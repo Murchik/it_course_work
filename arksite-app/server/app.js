@@ -1,17 +1,11 @@
-var http = require('http');
+import express from 'express';
 
-function onRequest(request, response) {
-    response.writeHead(200, {'Content-Type':'text/html'})
-    response.write("\
-    <html>\
-        <head>\
-        </head>\
-        <body>\
-            Hello World!\
-        </body>\
-    </html>\
-    ");
-    response.end();
-}
+const app = express();
 
-http.createServer(onRequest).listen(8080);
+app.get('/', (req, res) => {
+    res.send('Hello world!');
+})
+
+const server = app.listen(8080, () => {
+    console.log('Server is up and running on port 8080');
+})
