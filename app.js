@@ -2,8 +2,11 @@ const express = require('express')
 const config = require('config')
 const mongoose = require('mongoose')
 
-const app = express()
 const PORT = config.get('port') || 3000
+
+const app = express()
+
+app.use('test', require('./routes/test_route'))
 
 async function start() {
     try {
