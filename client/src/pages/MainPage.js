@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const TestPage = () => {
+export const MainPage = () => {
     return (
         <div>
-            <h1>TestPage</h1>
+            <h1>This is MainPage page</h1>
         </div>
     )
 }

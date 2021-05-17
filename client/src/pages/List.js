@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const SecondTestPage = () => {
+export const List = () => {
     return (
         <div>
-            <h1>SecondTestPage</h1>
+            <h1>This is List page</h1>
         </div>
     )
 }
