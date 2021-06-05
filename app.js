@@ -2,11 +2,12 @@ const express = require('express')
 const config = require('config')
 const mongoose = require('mongoose')
 
-const PORT = config.get('port') || 3000
+const PORT = config.get('port') || 8080
 
 const app = express()
 
-app.use('test', require('./routes/test_route'))
+app.use(express.json({ extended: true }))
+app.use(require('./routes/test_route'))
 
 async function start() {
     try {
@@ -15,9 +16,9 @@ async function start() {
             useUnifiedTopology: true,
             useCreateIndex: true
         })
-        app.listen(PORT, () => console.log(`App has been started on port ${PORT}...`))
+        app.listen(PORT, () => console.log(`> [Server is up and running on port ${PORT}]`))
     } catch (e) {
-        console.log('[Server Error]:', e.message)
+        console.log('> [Server Error]:', e.message)
         process.exit(1)
     }
 }

@@ -1,17 +1,36 @@
 import React, { useState } from 'react'
-
-import { NavLink } from 'react-router-dom'
-
+import { useHttp } from '../hooks/http.hook'
 
 export const AddCharacter = () => {
-    const [character, setCharacter] = React.useState({
-        class: "",
-        archetype: ""
-    });
+
+    const { loading, request } = useHttp()
+
+    const [form, setForm] = useState(
+        {
+            characterName: '',
+            characterClass: '',
+            characterEliteLevel: 0,
+            characterLevel: 0
+        }
+    )
+
+    const changeHandler = event => {
+        setForm({ ...form, [event.target.name]: event.target.value })
+    }
+
+    const addHandler = async () => {
+        try {
+            console.log('> [Sending request] Body: ', { ...form })
+            const data = await request('/add', 'POST', { ...form })
+            console.log('> [Receiving response] Body: ', data)
+        } catch (e) { }
+    }
+
     return (
         <div class="row">
             <div class="col s6 offset-s3">
                 <div class="card grey darken-4">
+
                     <div class="card-content white-text">
                         <span class="card-title">Добавить персонажа</span>
                     </div>
@@ -19,15 +38,24 @@ export const AddCharacter = () => {
                     <div class="card-content white-text">
                         <label>Имя</label>
                         <input
+                            class="white-text"
                             placeholder="Введите имя персонажа"
-                            id="сharacterName"
                             type="text"
+                            id="characterName"
+                            name="characterName"
+                            onChange={changeHandler}
                         />
                     </div>
 
                     <div class="card-content white-text">
                         <label>Класс</label>
-                        <select id="characterClass" class="browser-default">
+                        <select
+                            class="browser-default"
+                            type="text"
+                            id="characterClass"
+                            name="characterClass"
+                            onChange={changeHandler}
+                        >
                             <option value="" disabled selected>Выберете класс</option>
                             <option value="Sniper">Sniper</option>
                             <option value="Guard">Guard</option>
@@ -42,7 +70,13 @@ export const AddCharacter = () => {
 
                     <div class="card-content white-text">
                         <label>Текущий уровень элиты</label>
-                        <select id="characterEliteLevel" class="browser-default">
+                        <select
+                            class="browser-default"
+                            type="number"
+                            id="characterEliteLevel"
+                            name="characterEliteLevel"
+                            onChange={changeHandler}
+                        >
                             <option value="" disabled selected>Выберете уровень элиты</option>
                             <option value="0">0</option>
                             <option value="1">1</option>
@@ -55,14 +89,22 @@ export const AddCharacter = () => {
                         <input
                             class="white-text"
                             placeholder="Введите уровень"
-                            id="сharacterlevel"
                             type="number"
+                            id="characterLevel"
+                            name="characterLevel"
+                            onChange={changeHandler}
                         />
                     </div>
 
                     <div class="card-action">
-                        <NavLink to="#">Добавить</NavLink>
+                        <button
+                            onClick={addHandler}
+                            disabled={loading}
+                        >
+                            Добавить
+                        </button>
                     </div>
+
                 </div>
             </div>
         </div>

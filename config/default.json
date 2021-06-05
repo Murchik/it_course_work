@@ -1,4 +1,4 @@
 {
     "port": 8080,
-    "mongoUri": "mongodb+srv://Mur:qwerty1234@it.xu0ht.mongodb.net/arksitedb?retryWrites=true&w=majority"
+    "mongoUri": "mongodb+srv://Mur:qwerty1234@it.xu0ht.mongodb.net/arksiteDB?retryWrites=true&w=majority"
 }
