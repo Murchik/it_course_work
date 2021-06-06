@@ -7,7 +7,8 @@ const PORT = config.get('port') || 8080
 const app = express()
 
 app.use(express.json({ extended: true }))
-app.use(require('./routes/test_route'))
+app.use('/add', require('./routes/AddCharacter'))
+app.use('/list', require('./routes/List'))
 
 async function start() {
     try {
