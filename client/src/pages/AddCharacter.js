@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useHttp } from '../hooks/http.hook'
 
+import { NavLink } from 'react-router-dom'
+
 export const AddCharacter = () => {
 
     const { loading, request } = useHttp()
@@ -14,7 +16,7 @@ export const AddCharacter = () => {
         }
     )
 
-    const changeHandler = event => {
+    const changeHandler = (event) => {
         setForm({ ...form, [event.target.name]: event.target.value })
     }
 
@@ -97,11 +99,11 @@ export const AddCharacter = () => {
                     </div>
 
                     <div class="card-action">
-                        <button
-                            onClick={addHandler}
-                            disabled={loading}
-                        >
-                            Добавить
+                            <button class="waves-effect waves-light btn"
+                                onClick={addHandler}
+                                disabled={loading}
+                            >
+                                Добавить
                         </button>
                     </div>
 
