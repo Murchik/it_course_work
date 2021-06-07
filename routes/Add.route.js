@@ -2,6 +2,7 @@ const { Router } = require('express')
 const Character = require('../models/Character')
 const router = Router()
 
+// /add route
 router.post('/', async (req, res) => {
     try {
         console.log('> [Server recived /add request] Body: ', req.body)

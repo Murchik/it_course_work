@@ -2,6 +2,8 @@ const { Router } = require('express')
 const Character = require('../models/Character')
 const router = Router()
 
+
+// /list route
 router.get('/', async (req, res) => {
     try {
         const characters = await Character.find()
@@ -11,8 +13,10 @@ router.get('/', async (req, res) => {
     }
 })
 
+// /list route
 router.delete('/', async (req, res) => {
     try {
+        console.log("req.body: ", req.body)
         const { characterId } = req.body
         const result = await Character.findByIdAndDelete(characterId)
         res.json(result)

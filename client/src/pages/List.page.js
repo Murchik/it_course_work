@@ -1,12 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+
 import { useHttp } from '../hooks/http.hook'
+import { Preloader } from '../components/Preloader'
 
 export const List = () => {
-
+    const [isValid, setIsValid] = useState(false)
     const [characters, setCharacters] = useState([])
     const { loading, request } = useHttp()
-
-    const [isValid, setIsValid] = useState(false)
 
     const fetchCharacters = useCallback(async () => {
         try {
@@ -28,10 +29,12 @@ export const List = () => {
 
     useEffect(() => {
         fetchCharacters()
-    }, [])
+    }, [fetchCharacters])
 
     if (loading) {
-        return <div>Loading...</div>
+        return (
+            <Preloader />
+        )
     } else if (!isValid) {
         fetchCharacters()
     } else {
@@ -57,13 +60,31 @@ export const List = () => {
                                         <td>{character.characterClass}</td>
                                         <td>{character.characterEliteLevel}</td>
                                         <td>{character.characterLevel}</td>
+
+                                        <td>
+                                            <Link to={{
+                                                pathname: '/edit',
+                                                aboutCharacter: {
+                                                    characterName: character.characterName,
+                                                    characterClass: character.characterClass,
+                                                    characterEliteLevel: character.characterEliteLevel,
+                                                    characterLevel: character.characterLevel
+                                                }
+                                            }}>
+                                                <button class="waves-effect waves-light btn"><i class="material-icons">edit</i> </button>
+                                            </Link>
+                                        </td>
+
                                         <td>
                                             <button
                                                 class="waves-effect waves-light btn"
                                                 value={character._id}
                                                 onClick={deleteHandler}
-                                            >Delete</button>
+                                            >
+                                                Удалить
+                                            </button>
                                         </td>
+
                                     </tr>
                                 )
                             })
