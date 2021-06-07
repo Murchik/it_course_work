@@ -44,15 +44,15 @@ export const Edit = (props) => {
                 <div class="col s6 offset-s3">
                     <div class="card grey darken-4">
 
-                        <div class="card-content white-text">
-                            <span class="card-title">Редактировать персонажа</span>
+                        <div class="card-content">
+                            <span class="card-title grey-text text-lighten-4">Редактировать персонажа</span>
                         </div>
 
-                        <div class="card-content white-text">
-                            <label>Имя</label>
+                        <div class="card-content">
+                            <label class="grey-text text-lighten-4">Имя</label>
                             <input
                                 disabled
-                                class="white-text"
+                                class="black-text grey"
                                 placeholder="Введите имя персонажа"
                                 type="text"
                                 id="characterName"
@@ -62,17 +62,17 @@ export const Edit = (props) => {
                             />
                         </div>
 
-                        <div class="card-content white-text">
-                            <label>Класс</label>
+                        <div class="card-content">
+                            <label class="grey-text text-lighten-4">Класс</label>
                             <select
-                                class="browser-default"
+                                class="browser-default black-text grey lighten-3"
                                 type="text"
                                 id="characterClass"
                                 name="characterClass"
                                 onChange={changeHandler}
                                 defaultValue={characterClass}
                             >
-                                <option value="" disabled>Выберете класс</option>
+                                <option value="" disabled selected>Выберите класс</option>
                                 <option value="Sniper">Sniper</option>
                                 <option value="Guard">Guard</option>
                                 <option value="Defender">Defender</option>
@@ -84,10 +84,10 @@ export const Edit = (props) => {
                             </select>
                         </div>
 
-                        <div class="card-content white-text">
-                            <label>Текущий уровень элиты</label>
+                        <div class="card-content">
+                            <label class="grey-text text-lighten-4">Текущий уровень элиты</label>
                             <select
-                                class="browser-default"
+                                class="browser-default black-text grey lighten-3"
                                 type="number"
                                 id="characterEliteLevel"
                                 name="characterEliteLevel"
@@ -101,10 +101,10 @@ export const Edit = (props) => {
                             </select>
                         </div>
 
-                        <div class="card-content white-text">
-                            <label>Уровень</label>
+                        <div class="card-content">
+                            <label class="grey-text text-lighten-4">Уровень</label>
                             <input
-                                class="white-text"
+                                class="black-text grey lighten-3"
                                 placeholder="Введите уровень"
                                 type="number"
                                 id="characterLevel"
@@ -114,14 +114,14 @@ export const Edit = (props) => {
                             />
                         </div>
 
-                        <div class="card-action">
+                        <div class="card-action grey darken-4">
                             <Link to="/list">
-                                <button class="waves-effect waves-light btn"
+                                <button class="waves-effect waves-light btn black-text amber accent-4"
                                     onClick={editHandler}
                                     disabled={loading}
                                 >
                                     Сохранить
-                        </button>
+                                </button>
                             </Link>
                         </div>
 

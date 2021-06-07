@@ -13,7 +13,6 @@ export const List = () => {
         try {
             const fetched = await request('/list', 'GET')
             setCharacters(fetched)
-            setIsValid(true)
         } catch (error) { }
     }, [request])
 
@@ -29,18 +28,23 @@ export const List = () => {
 
     useEffect(() => {
         fetchCharacters()
-    }, [fetchCharacters])
+        setIsValid(true)
+    }, [isValid, fetchCharacters])
 
     if (loading) {
         return (
             <Preloader />
         )
-    } else if (!isValid) {
-        fetchCharacters()
+    } else if (!characters.length) {
+        return (
+            <div class='center'>
+                <h3>Список пуст</h3>
+            </div>
+        )
     } else {
         return (
             <div>
-                <table>
+                <table class="grey lighten-3">
                     <thead>
                         <tr>
                             <th>№</th>
@@ -71,13 +75,13 @@ export const List = () => {
                                                     characterLevel: character.characterLevel
                                                 }
                                             }}>
-                                                <button class="waves-effect waves-light btn"><i class="material-icons">edit</i> </button>
+                                                <button class="waves-effect waves-light btn black-text amber accent-4"><i class="material-icons">edit</i> </button>
                                             </Link>
                                         </td>
 
                                         <td>
                                             <button
-                                                class="waves-effect waves-light btn"
+                                                class="waves-effect waves-light btn black-text amber accent-4"
                                                 value={character._id}
                                                 onClick={deleteHandler}
                                             >

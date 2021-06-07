@@ -37,14 +37,14 @@ export const Add = () => {
                 <div class="col s6 offset-s3">
                     <div class="card grey darken-4">
 
-                        <div class="card-content white-text">
-                            <span class="card-title">Добавить персонажа</span>
+                        <div class="card-content">
+                            <span class="card-title grey-text text-lighten-4">Добавить персонажа</span>
                         </div>
 
-                        <div class="card-content white-text">
-                            <label>Имя</label>
+                        <div class="card-content">
+                            <label class="grey-text text-lighten-4">Имя</label>
                             <input
-                                class="white-text"
+                                class="black-text grey lighten-3"
                                 placeholder="Введите имя персонажа"
                                 type="text"
                                 id="characterName"
@@ -53,16 +53,16 @@ export const Add = () => {
                             />
                         </div>
 
-                        <div class="card-content white-text">
-                            <label>Класс</label>
+                        <div class="card-content">
+                            <label class="grey-text text-lighten-4">Класс</label>
                             <select
-                                class="browser-default"
+                                class="browser-default black-text grey lighten-3"
                                 type="text"
                                 id="characterClass"
                                 name="characterClass"
                                 onChange={changeHandler}
                             >
-                                <option value="" disabled selected>Выберете класс</option>
+                                <option value="" disabled selected>Выберите класс</option>
                                 <option value="Sniper">Sniper</option>
                                 <option value="Guard">Guard</option>
                                 <option value="Defender">Defender</option>
@@ -74,10 +74,10 @@ export const Add = () => {
                             </select>
                         </div>
 
-                        <div class="card-content white-text">
-                            <label>Текущий уровень элиты</label>
+                        <div class="card-content">
+                            <label class="grey-text text-lighten-4">Текущий уровень элиты</label>
                             <select
-                                class="browser-default"
+                                class="browser-default black-text grey lighten-3"
                                 type="number"
                                 id="characterEliteLevel"
                                 name="characterEliteLevel"
@@ -90,10 +90,10 @@ export const Add = () => {
                             </select>
                         </div>
 
-                        <div class="card-content white-text">
-                            <label>Уровень</label>
+                        <div class="card-content">
+                            <label class="grey-text text-lighten-4">Уровень</label>
                             <input
-                                class="white-text"
+                                class="black-text grey lighten-3"
                                 placeholder="Введите уровень"
                                 type="number"
                                 id="characterLevel"
@@ -102,8 +102,8 @@ export const Add = () => {
                             />
                         </div>
 
-                        <div class="card-action">
-                            <button class="waves-effect waves-light btn"
+                        <div class="card-action grey darken-4">
+                            <button class="waves-effect waves-light btn black-text amber accent-4"
                                 onClick={addHandler}
                                 disabled={loading}
                             >
