@@ -53,11 +53,9 @@ export const Edit = (props) => {
                             <input
                                 disabled
                                 class="black-text grey"
-                                placeholder="Введите имя персонажа"
                                 type="text"
                                 id="characterName"
                                 name="characterName"
-                                onChange={changeHandler}
                                 defaultValue={characterName}
                             />
                         </div>
@@ -65,14 +63,13 @@ export const Edit = (props) => {
                         <div class="card-content">
                             <label class="grey-text text-lighten-4">Класс</label>
                             <select
-                                class="browser-default black-text grey lighten-3"
+                                disabled
+                                class="browser-default black-text grey"
                                 type="text"
                                 id="characterClass"
                                 name="characterClass"
-                                onChange={changeHandler}
                                 defaultValue={characterClass}
                             >
-                                <option value="" disabled selected>Выберите класс</option>
                                 <option value="Sniper">Sniper</option>
                                 <option value="Guard">Guard</option>
                                 <option value="Defender">Defender</option>
