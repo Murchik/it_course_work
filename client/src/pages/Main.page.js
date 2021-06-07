@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 import profile from '../images/profile.jpg'
 
@@ -9,7 +8,7 @@ export const MainPage = () => {
             <div class="col s6">
                 <div class="card medium grey darken-4">
                     <div class="card-image">
-                        <img src={profile} />
+                        <img alt="" src={profile}/>
                         <span class="card-title grey-text text-lighten-4">Об авторе</span>
                     </div>
                     <div class="card-content grey-text text-lighten-4">
@@ -31,12 +30,10 @@ export const MainPage = () => {
             </div>
             <div class="col s6">
                 <h3>О сайте</h3>
-
                 <blockquote>
                     <p>Сайт база данных персонажей Arksite</p>
                     <p>Веб приложение arksite предназначено для удобного ведения учёта доступных персонажей из компьютерной игры Arknights, их уровня, класса и их удобного просмотра в виде сортируемого и фильтруемого списка.</p>
                 </blockquote>
-
             </div>
         </div>
 
