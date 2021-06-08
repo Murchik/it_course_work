@@ -102,6 +102,7 @@ export const List = () => {
                                 <th>Класс</th>
                                 <th>Текущий уровень элиты</th>
                                 <th>Уровень</th>
+                                <th>Винрейт</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -114,6 +115,7 @@ export const List = () => {
                                             <td>{character.characterClass}</td>
                                             <td>{character.characterEliteLevel}</td>
                                             <td>{character.characterLevel}</td>
+                                            <td>{character.characterWinrate}</td>
 
                                             <td>
                                                 <Link to={{
@@ -122,7 +124,8 @@ export const List = () => {
                                                         characterName: character.characterName,
                                                         characterClass: character.characterClass,
                                                         characterEliteLevel: character.characterEliteLevel,
-                                                        characterLevel: character.characterLevel
+                                                        characterLevel: character.characterLevel,
+                                                        characterWinrate: character.characterWinrate
                                                     }
                                                 }}>
                                                     <button class="waves-effect waves-light btn black-text amber accent-4">

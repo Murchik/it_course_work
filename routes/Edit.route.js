@@ -11,7 +11,8 @@ router.put('/', async (req, res) => {
             characterName,
             characterClass,
             characterEliteLevel,
-            characterLevel
+            characterLevel,
+            characterWinrate
         } = req.body
 
         const character = await Character.findOne({ characterName })
@@ -23,6 +24,7 @@ router.put('/', async (req, res) => {
         character.characterClass = characterClass
         character.characterEliteLevel = characterEliteLevel
         character.characterLevel = characterLevel
+        character.characterWinrate = characterWinrate
 
         await character.save()
 

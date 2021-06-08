@@ -11,7 +11,8 @@ router.post('/', async (req, res) => {
             characterName,
             characterClass,
             characterEliteLevel,
-            characterLevel
+            characterLevel,
+            characterWinrate
         } = req.body
 
         const candidate = await Character.findOne({ characterName })
@@ -24,7 +25,8 @@ router.post('/', async (req, res) => {
             characterName,
             characterClass,
             characterEliteLevel,
-            characterLevel
+            characterLevel,
+            characterWinrate
         })
 
         await character.save()

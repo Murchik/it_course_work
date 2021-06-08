@@ -11,7 +11,8 @@ export const Add = () => {
             characterName: '',
             characterClass: '',
             characterEliteLevel: 0,
-            characterLevel: 0
+            characterLevel: 0,
+            characterWinrate: 0
         }
     )
 
@@ -98,6 +99,18 @@ export const Add = () => {
                                 type="number"
                                 id="characterLevel"
                                 name="characterLevel"
+                                onChange={changeHandler}
+                            />
+                        </div>
+
+                        <div class="card-content">
+                            <label class="grey-text text-lighten-4">Винрейт</label>
+                            <input
+                                class="black-text grey lighten-3"
+                                placeholder="Введите винрейт"
+                                type="number"
+                                id="characterWinrate"
+                                name="characterWinrate"
                                 onChange={changeHandler}
                             />
                         </div>

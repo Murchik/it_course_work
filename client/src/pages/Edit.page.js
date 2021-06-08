@@ -10,7 +10,8 @@ export const Edit = (props) => {
         characterName,
         characterClass,
         characterEliteLevel,
-        characterLevel
+        characterLevel,
+        characterWinrate
     } = props.location.aboutCharacter
 
     const [form, setForm] = useState(
@@ -18,7 +19,8 @@ export const Edit = (props) => {
             characterName: characterName,
             characterClass: characterClass,
             characterEliteLevel: characterEliteLevel,
-            characterLevel: characterLevel
+            characterLevel: characterLevel,
+            characterWinrate
         }
     )
 
@@ -108,6 +110,19 @@ export const Edit = (props) => {
                                 name="characterLevel"
                                 onChange={changeHandler}
                                 defaultValue={characterLevel}
+                            />
+                        </div>
+
+                        <div class="card-content">
+                            <label class="grey-text text-lighten-4">Винрейт</label>
+                            <input
+                                class="black-text grey lighten-3"
+                                placeholder="Введите винрейт"
+                                type="number"
+                                id="characterWinrate"
+                                name="characterWinrate"
+                                onChange={changeHandler}
+                                defaultValue={characterWinrate}
                             />
                         </div>
 
